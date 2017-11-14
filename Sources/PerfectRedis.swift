@@ -1098,6 +1098,10 @@ public extension RedisClient {
         self.sendCommand(name: "HDEL \(key) \(fields.joined(separator: " "))", callback: callback)
     }
 
+    func hashDel(key: String, fields: [String], callback: @escaping redisResponseCallback) {
+        self.sendCommand(name: "HDEL \(key) \(fields.joined(separator: " "))", callback: callback)
+    }
+    
     /// Get all field value pairs from the hash
     func hashGetAll(key: String, callback: @escaping redisResponseCallback) {
         self.sendCommand(name: "HGETALL \(key)", callback: callback)
